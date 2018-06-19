@@ -33,6 +33,7 @@ export class MyApp {
         ];
         user.uid = '';
       }
+     
       else {
         this.rootPage = HomePage;
         this.pages = [
@@ -40,11 +41,14 @@ export class MyApp {
           { title: 'Lock', icon: 'lock', component: LockPage },
           { title: 'Logout', icon: 'log-out', component: LogoutPage }
           
+          
         ];
         
         this.uid = user.uid;
       }
-    
+      
+      
+      
     });
     
    

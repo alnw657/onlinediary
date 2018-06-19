@@ -75,17 +75,11 @@
         Password needs to be at least 8 characters long
       </ion-item>
 
-      <ion-item>
-        <ion-label>I accept the terms and conditions</ion-label>
-        <ion-checkbox color="dark" [formControl]="registerForm.controls['tnc']" [checked] = "tnc_accept"></ion-checkbox>
-      </ion-item>
-
-      <ion-item>
-        <button ion-button clear (click)="showTC()">Read our terms and conditions</button>
-      </ion-item>
+      
+    
       
       <ion-item>
-        <button ion-button color="secondary" type="submit" full [disabled]="!registerForm.valid" (click)="register()" >
+        <button ion-button color="secondary" type="submit" full (click)="register()" >
           Register
         </button>
       </ion-item>
