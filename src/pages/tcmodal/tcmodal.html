@@ -1,0 +1,53 @@
+<!--
+  Generated template for the TcmodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Terms and conditions</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <h2>Your Notes</h2>
+    <p>We reserve the right to scan all your notes for any content that we like. Anything that we like maybe copied into a database that will exist for eternity and will never be deleted.
+    </p>
+  </ion-item>
+  <ion-item>
+    <h2>Your Privacy</h2>
+    <p>
+    </p>
+  </ion-item>
+  <ion-item>
+    <h2>Data Safety</h2>
+    <p>Data safety is our priority, especially our own data. We will maintain the safety of your data as long as we can keep generating revenue from it.
+    </p>
+  </ion-item>
+  <ion-item>
+    <h2>Law Enforcement</h2>
+    <p>When requested by law enforcement, we will gladly share your data without any notice or warning. You will know we have shared your data with law enforcement only through your prosecution by law enforcement.
+    </p>
+  </ion-item>
+  <ion-item>
+    <h2>Data Retention</h2>
+    <p>We will retain data that you have shared with us for eternity. 
+    </p>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item>
+    <ion-label>I'm in love with the terms and conditions</ion-label>
+    <ion-checkbox  [(ngModel)]="accept" (click)="closeModal()"></ion-checkbox>
+  </ion-item>
+  <ion-item >
+    <button color="secondary" ion-button block (click)="closeModal()">OK</button>
+  </ion-item>
+</ion-list>
+</ion-content>

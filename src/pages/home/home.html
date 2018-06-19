@@ -1,14 +1,48 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item>
+      <button color="secondary"ion-button (click)="openCreateModal({mode:'add'})">
+        Add Your Story
+      </button>
+    </ion-item>
+</ion-list>
+<ion-grid>
+  <ion-row>
+    <ion-col col-md-6 col-sm-6 col-12 *ngFor="let note of notes; let i=index">
+      <ion-card  [ngStyle]="{'background': note.color }">
+        <ion-card-header>
+            <h1>{{note.title}}</h1>
+          
+        </ion-card-header>
+        
+        <ion-card-content>
+          {{note.note}}
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button small clear block color="light" (click)="openCreateModal({mode:'edit',title:note.title,text:note.note,created:note.created})">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-col>
+           <ion-col>
+            <button ion-button small clear block color="light" (click)="delete(note.created)">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+    </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

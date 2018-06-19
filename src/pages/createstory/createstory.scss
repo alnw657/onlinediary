@@ -1,0 +1,10 @@
+page-createnote {
+  .validator-error{
+    color: red;
+  }
+  $text-input-highlight-color-valid: green;
+  textarea.text-input{
+    min-height: 5em;
+  }
+  
+}

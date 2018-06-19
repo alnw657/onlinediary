@@ -1,0 +1,102 @@
+
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- Login Form -->
+  <!-- if state is login show this form -->
+  <ion-list *ngIf="this.state == 'login'">
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <h3>Sign in to your account</h3>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Email</ion-label>
+        <ion-input [formControl]="loginForm.controls['email']" placeholder="Email Address" type="email" ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.dirty" class="validator-error">
+        Please enter a valid email address
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Password</ion-label>
+        <ion-input [formControl]="loginForm.controls['password']" placeholder="Password" type="password" ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty" class="validator-error">
+        Password cannot be empty
+      </ion-item>
+
+      <ion-item>
+        <button ion-button color="secondary" full type="submit" [disabled]="!loginForm.valid" (click)="login()" >
+          Sign in
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <p>
+            <button ion-button color="secondary" full type="submit"(click)="toggleForms()" >
+            First time user ? Sign Up
+          </button>
+        </p>
+      </ion-item>
+    </form>
+  </ion-list>
+
+<!-- Register Form -->
+  <!-- if state is signup show this form -->
+  <ion-list *ngIf="this.state == 'signup'">
+    <form [formGroup]="registerForm">
+      <ion-item>
+        <h3>Sign Up</h3>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Email</ion-label>
+        <ion-input [formControl]="registerForm.controls['email']" placeholder="Email Address" type="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.dirty" class="validator-error">
+        Please enter a valid email address
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Password</ion-label>
+        <ion-input [formControl]="registerForm.controls['password']" placeholder="Password" type="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!registerForm.controls.password.valid && registerForm.controls.password.dirty" class="validator-error">
+        Password needs to be at least 8 characters long
+      </ion-item>
+
+      <ion-item>
+        <ion-label>I accept the terms and conditions</ion-label>
+        <ion-checkbox color="dark" [formControl]="registerForm.controls['tnc']" [checked] = "tnc_accept"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button clear (click)="showTC()">Read our terms and conditions</button>
+      </ion-item>
+      
+      <ion-item>
+        <button ion-button color="secondary" type="submit" full [disabled]="!registerForm.valid" (click)="register()" >
+          Register
+        </button>
+      </ion-item>
+
+      </form>
+      <ion-item>
+        <p>Already have an account?
+          <a href="#" (click)="toggleForms()">Sign in to your account</a>
+        </p>
+      </ion-item>
+
+
+  </ion-list>
+</ion-content>

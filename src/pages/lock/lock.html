@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Locked</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- Login Form -->
+  <!-- if state is login show this form -->
+  <ion-list *ngIf="this.state == 'login'">
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <h3>Locked</h3>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Email</ion-label>
+        <ion-input [formControl]="loginForm.controls['email']" placeholder="Email Address" type="email" ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.dirty" class="validator-error">
+        Please enter a valid email address
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked >Password</ion-label>
+        <ion-input [formControl]="loginForm.controls['password']" placeholder="Password" type="password" ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty" class="validator-error">
+        Password cannot be empty
+      </ion-item>
+
+      <ion-item>
+        <button ion-button color="secondary" full type="submit" [disabled]="!loginForm.valid" (click)="login()" >
+          Unlock
+        </button>
+      </ion-item>
+
+    </form>
+  </ion-list>
+
+
+</ion-content>
